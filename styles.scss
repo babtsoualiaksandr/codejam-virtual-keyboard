@@ -1,0 +1,82 @@
+.wrapper {
+    margin: 0 auto;
+    font-family: Roboto,Segoe UI,"Tahoma, sans-serif";
+    background-color: #27eeee;
+
+    textarea {
+        display: block;
+        width: 800px;
+        height: 300px;
+        margin: 0 auto 10px;
+        padding: 10px;
+        font-size: 18px;
+        color: #444;
+    }
+}
+
+.keyboard {
+    width: 845px;
+    margin: 0 auto;
+    background-color: bisque;
+
+    .row {
+        clear: both;
+        width: 100%;
+        height: 50px;
+        padding-bottom: 3px;
+
+        .key {
+            float: left;
+            width: 54px;
+            height: 51px;
+            margin-left: 3px;
+            font-weight: 500;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            background: #5d6b63;
+            border-radius: 5px;
+            cursor: pointer;
+            user-select: none;
+            transition: border-radius 0.8s, background-color 0.5s;
+
+            &.clicked {
+                background-color: #e9dfdf;
+                border-radius: 10px;
+            }
+            &.backspace {
+                width: 96px;                
+            }
+            &.tab {
+                width: 85px;
+            }
+            &.capslock {
+                width: 76px;
+            }
+            &.del {
+                width: 64px;
+            }
+            &.enter {
+                width: 73px;
+            }
+            &.shiftleft {
+                width: 95px;
+                border: solid 1px red;
+            }
+            &.shiftright {
+                width: 51px;
+            }
+            &.space {
+                width: 380px;
+            }
+            &.alt {
+                border: solid 1px red
+            }
+
+        }
+    }
+    .off,.up {
+        display: none
+    }
+
+}

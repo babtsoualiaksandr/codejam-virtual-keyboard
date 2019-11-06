@@ -1,0 +1,95 @@
+.wrapper {
+  margin: 0 auto;
+  font-family: Roboto,Segoe UI,"Tahoma, sans-serif";
+  background-color: #27eeee;
+}
+
+.wrapper textarea {
+  display: block;
+  width: 800px;
+  height: 300px;
+  margin: 0 auto 10px;
+  padding: 10px;
+  font-size: 18px;
+  color: #444;
+}
+
+.keyboard {
+  width: 845px;
+  margin: 0 auto;
+  background-color: bisque;
+}
+
+.keyboard .row {
+  clear: both;
+  width: 100%;
+  height: 50px;
+  padding-bottom: 3px;
+}
+
+.keyboard .row .key {
+  float: left;
+  width: 54px;
+  height: 51px;
+  margin-left: 3px;
+  font-weight: 500;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background: #5d6b63;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: border-radius 0.8s, background-color 0.5s;
+  transition: border-radius 0.8s, background-color 0.5s;
+}
+
+.keyboard .row .key.clicked {
+  background-color: #e9dfdf;
+  border-radius: 10px;
+}
+
+.keyboard .row .key.backspace {
+  width: 96px;
+}
+
+.keyboard .row .key.tab {
+  width: 85px;
+}
+
+.keyboard .row .key.capslock {
+  width: 76px;
+}
+
+.keyboard .row .key.del {
+  width: 64px;
+}
+
+.keyboard .row .key.enter {
+  width: 73px;
+}
+
+.keyboard .row .key.shiftleft {
+  width: 95px;
+  border: solid 1px red;
+}
+
+.keyboard .row .key.shiftright {
+  width: 51px;
+}
+
+.keyboard .row .key.space {
+  width: 380px;
+}
+
+.keyboard .row .key.alt {
+  border: solid 1px red;
+}
+
+.keyboard .off, .keyboard .up {
+  display: none;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,12 +1,12 @@
 'use strict';
 (function () {
-  
+
   const wrapper = document.createElement('div');
   wrapper.className = 'wrapper';
   const textarea = document.createElement('textarea');
   textarea.id = 'result';
-  textarea.setAttribute('rows','10');
-  textarea.setAttribute('cols','100');
+  textarea.setAttribute('rows', '10');
+  textarea.setAttribute('cols', '100');
   wrapper.appendChild(textarea);
   const keyboard = document.createElement('div');
   keyboard.className = "keyboard";
@@ -95,7 +95,7 @@
       if (row_index === element.val.row) {
         const key = document.createElement('div');
         key.className = 'key ' + element.key.toLowerCase();
-        
+
         const key_ru = document.createElement('span');
         key_ru.className = `${element.key.toLowerCase()} ru`;
         key.appendChild(key_ru);
@@ -214,8 +214,6 @@
     }
   }
 
-
-
   document.querySelector('.shiftleft').addEventListener('click', Change_language);
   document.querySelector('.capslock').addEventListener('click', Change_Shift);
 
@@ -224,8 +222,9 @@
   document.querySelector('.keyboard').addEventListener('mouseout', clickMouseKey);
   document.querySelector('.keyboard').addEventListener('click', clickMouseKey);
 
-  document.addEventListener('keydown', pressKeyDown, { passive: true });
-  document.addEventListener('keyup', pressKeyUp, { passive: true });
+  document.addEventListener('keydown', pressKeyDown, false);
+  document.addEventListener('keyup', pressKeyUp, false);
+
 
 
 
@@ -372,7 +371,8 @@
   }
 
   function pressKeyDown(event) {
-    const key = document.querySelector('.key + .' + event.code.toLowerCase());
+    event.preventDefault();
+    const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.add("clicked");
     if (event.keyCode === 18) {
       altBtn = true;
@@ -383,7 +383,8 @@
   }
 
   function pressKeyUp(event) {
-    const key = document.querySelector('.key + .' + event.code.toLowerCase());
+    event.preventDefault();
+    const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.remove("clicked");
     if (event.keyCode === 0 && (altBtn)) {
       Change_language();

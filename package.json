@@ -10,7 +10,7 @@
     "eslint": "^6.6.0"
   },
   "scripts": {
-    "lint": "eslint index.js --fix"
+    "eslint": "eslint index.js --fix"
   },
   "repository": {
     "type": "git",

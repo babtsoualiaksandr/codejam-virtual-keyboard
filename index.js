@@ -123,7 +123,7 @@
         key_en_up.className = `case up`;
         key_en_up.textContent = element.val.en.up;
         key_en.appendChild(key_en_up);
-        
+
         row.appendChild(key);
 
         if (row_index === 4 && index == 8) index = 14;
@@ -218,7 +218,10 @@
 
   document.querySelector('.shiftleft').addEventListener('click', Change_language);
   document.querySelector('.capslock').addEventListener('click', Change_Shift);
+
   document.querySelector('.keyboard').addEventListener('mousedown', clickMouseDownOnKey);
+  document.querySelector('.keyboard').addEventListener('mouseup', clickMouseKey);
+  document.querySelector('.keyboard').addEventListener('mouseout', clickMouseKey);
   document.querySelector('.keyboard').addEventListener('click', clickMouseKey);
 
   document.addEventListener('keydown', pressKeyDown, { passive: true });

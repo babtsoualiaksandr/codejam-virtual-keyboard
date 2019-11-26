@@ -1,14 +1,17 @@
 'use strict';
 (function () {
+  
   const wrapper = document.createElement('div');
-  wrapper.className = "wrapper";
-  wrapper.innerHTML = '<textarea id="result" rows="10" cols="100"></textarea>';
-
-  document.body.append(wrapper);
-
+  wrapper.className = 'wrapper';
+  const textarea = document.createElement('textarea');
+  textarea.id = 'result';
+  textarea.setAttribute('rows','10');
+  textarea.setAttribute('cols','100');
+  wrapper.appendChild(textarea);
   const keyboard = document.createElement('div');
   keyboard.className = "keyboard";
-  wrapper.append(keyboard);
+  wrapper.appendChild(keyboard);
+
 
   const Keys = [
 
@@ -83,26 +86,52 @@
   ]
 
   for (let row_index = 0; row_index < 5; row_index++) {
+
     const row = document.createElement('div');
     row.className = "row";
-    keyboard.insertAdjacentElement("beforeend", row);
+    keyboard.appendChild(row);
 
     Keys.forEach((element, index) => {
       if (row_index === element.val.row) {
-        let key = document.createElement('div');
+        const key = document.createElement('div');
         key.className = 'key ' + element.key.toLowerCase();
-        key.innerHTML = `<span class="`
-          + element.key.toLowerCase() + ` ru"><span class="case down">`
-          + element.val.ru.down + `</span><span class="case up">` +
-          element.val.ru.up + `</span></span><span class="` +
-          element.key.toLowerCase() + ` en"><span class="case down">` +
-          element.val.en.down + `</span><span class="case up">` +
-          element.val.en.up + `</span></span>`
-        row.insertAdjacentElement("beforeend", key);
+        
+        const key_ru = document.createElement('span');
+        key_ru.className = `${element.key.toLowerCase()} ru`;
+        key.appendChild(key_ru);
+
+        const key_ru_down = document.createElement('span');
+        key_ru_down.className = `case down`;
+        key_ru_down.textContent = element.val.ru.down;
+        key_ru.appendChild(key_ru_down);
+
+        const key_ru_up = document.createElement('span');
+        key_ru_up.className = `case up`;
+        key_ru_up.textContent = element.val.ru.up;
+        key_ru.appendChild(key_ru_up);
+
+        const key_en = document.createElement('span');
+        key_en.className = `${element.key.toLowerCase()} en`;
+        key.appendChild(key_en);
+
+        const key_en_down = document.createElement('span');
+        key_en_down.className = `case down`;
+        key_en_down.textContent = element.val.en.down;
+        key_en.appendChild(key_en_down);
+
+        const key_en_up = document.createElement('span');
+        key_en_up.className = `case up`;
+        key_en_up.textContent = element.val.en.up;
+        key_en.appendChild(key_en_up);
+        
+        row.appendChild(key);
+
         if (row_index === 4 && index == 8) index = 14;
       }
     });
   }
+
+  document.body.append(wrapper);
 
   let language;
   let shiftUp;
@@ -158,9 +187,6 @@
         break;
     }
   }
-
-
-
 
   function ShiftSetStyle(shiftUp) {
     localStorage.setItem('shiftUp_KeyBoard', shiftUp);
@@ -329,8 +355,6 @@
         case 'AltLeft': {
           break;
         }
-
-
         default: {
           text.value += key.val[language][shiftUp]
         }

@@ -15,74 +15,74 @@
 
   const Keys = [
 
-    { key: 'Backquote', val: { ru: { down: 'ё', up: 'Ё' }, en: { down: '`', up: '~' }, row: 0 } },
-    { key: 'Digit1', val: { ru: { down: '1', up: '!' }, en: { down: '1', up: '!' }, row: 0 } },
-    { key: 'Digit2', val: { ru: { down: '2', up: '"' }, en: { down: '2', up: '@' }, row: 0 } },
-    { key: 'Digit3', val: { ru: { down: '3', up: '№' }, en: { down: '3', up: '#' }, row: 0 } },
-    { key: 'Digit4', val: { ru: { down: '4', up: ';' }, en: { down: '4', up: '$' }, row: 0 } },
-    { key: 'Digit5', val: { ru: { down: '5', up: '%' }, en: { down: '5', up: '%' }, row: 0 } },
-    { key: 'Digit6', val: { ru: { down: '6', up: ':' }, en: { down: '6', up: '^' }, row: 0 } },
-    { key: 'Digit7', val: { ru: { down: '7', up: '?' }, en: { down: '7', up: '&' }, row: 0 } },
-    { key: 'Digit8', val: { ru: { down: '8', up: '*' }, en: { down: '8', up: '*' }, row: 0 } },
-    { key: 'Digit9', val: { ru: { down: '9', up: '(' }, en: { down: '9', up: '(' }, row: 0 } },
-    { key: 'Digit0', val: { ru: { down: '0', up: ')' }, en: { down: '0', up: ')' }, row: 0 } },
-    { key: 'Digit-', val: { ru: { down: '-', up: '_' }, en: { down: '-', up: '_' }, row: 0 } },
-    { key: 'Equal', val: { ru: { down: '=', up: '+' }, en: { down: '=', up: '+' }, row: 0 } },
-    { key: 'Backspace', val: { ru: { down: 'Backspace', up: 'Backspace' }, en: { down: 'Backspace', up: 'Backspace' }, row: 0 } },
+    { key: 'Backquote', val: { ru: { down: 'ё', up: 'Ё' }, en: { down: '`', up: '~' }, row: 0, kind: '' } },
+    { key: 'Digit1', val: { ru: { down: '1', up: '!' }, en: { down: '1', up: '!' }, row: 0, kind: 'num' } },
+    { key: 'Digit2', val: { ru: { down: '2', up: '"' }, en: { down: '2', up: '@' }, row: 0, kind: 'num' } },
+    { key: 'Digit3', val: { ru: { down: '3', up: '№' }, en: { down: '3', up: '#' }, row: 0, kind: 'num' } },
+    { key: 'Digit4', val: { ru: { down: '4', up: ';' }, en: { down: '4', up: '$' }, row: 0, kind: 'num' } },
+    { key: 'Digit5', val: { ru: { down: '5', up: '%' }, en: { down: '5', up: '%' }, row: 0, kind: 'num' } },
+    { key: 'Digit6', val: { ru: { down: '6', up: ':' }, en: { down: '6', up: '^' }, row: 0, kind: 'num' } },
+    { key: 'Digit7', val: { ru: { down: '7', up: '?' }, en: { down: '7', up: '&' }, row: 0, kind: 'num' } },
+    { key: 'Digit8', val: { ru: { down: '8', up: '*' }, en: { down: '8', up: '*' }, row: 0, kind: 'num' } },
+    { key: 'Digit9', val: { ru: { down: '9', up: '(' }, en: { down: '9', up: '(' }, row: 0, kind: 'num' } },
+    { key: 'Digit0', val: { ru: { down: '0', up: ')' }, en: { down: '0', up: ')' }, row: 0, kind: 'num' } },
+    { key: 'Digit-', val: { ru: { down: '-', up: '_' }, en: { down: '-', up: '_' }, row: 0, kind: 'num' } },
+    { key: 'Equal', val: { ru: { down: '=', up: '+' }, en: { down: '=', up: '+' }, row: 0, kind: 'num' } },
+    { key: 'Backspace', val: { ru: { down: 'Backspace', up: 'Backspace' }, en: { down: 'Backspace', up: 'Backspace' }, row: 0, kind: '' } },
 
-    { key: 'Tab', val: { ru: { down: 'Tab', up: 'Tab' }, en: { down: 'Tab', up: 'Tab' }, row: 1 } },
-    { key: 'KeyQ', val: { ru: { down: 'й', up: 'Й' }, en: { down: 'q', up: 'Q' }, row: 1 } },
-    { key: 'KeyW', val: { ru: { down: 'ц', up: 'Ц' }, en: { down: 'w', up: 'W' }, row: 1 } },
-    { key: 'KeyE', val: { ru: { down: 'у', up: 'У' }, en: { down: 'e', up: 'E' }, row: 1 } },
-    { key: 'KeyR', val: { ru: { down: 'к', up: 'К' }, en: { down: 'r', up: 'R' }, row: 1 } },
-    { key: 'KeyT', val: { ru: { down: 'е', up: 'Е' }, en: { down: 't', up: 'T' }, row: 1 } },
-    { key: 'KeyY', val: { ru: { down: 'н', up: 'Н' }, en: { down: 'y', up: 'Y' }, row: 1 } },
-    { key: 'KeyU', val: { ru: { down: 'г', up: 'Г' }, en: { down: 'u', up: 'U' }, row: 1 } },
-    { key: 'KeyI', val: { ru: { down: 'ш', up: 'Ш' }, en: { down: 'i', up: 'I' }, row: 1 } },
-    { key: 'KeyO', val: { ru: { down: 'щ', up: 'Щ' }, en: { down: 'o', up: 'O' }, row: 1 } },
-    { key: 'KeyP', val: { ru: { down: 'з', up: 'З' }, en: { down: 'p', up: 'P' }, row: 1 } },
-    { key: 'KeyOpen', val: { ru: { down: 'х', up: 'Х' }, en: { down: '[', up: '[' }, row: 1 } },
-    { key: 'KeyClose', val: { ru: { down: 'ъ', up: 'Ъ' }, en: { down: ']', up: ']' }, row: 1 } },
-    { key: 'Del', val: { ru: { down: 'Del', up: 'Del' }, en: { down: 'Del', up: 'Del' }, row: 1 } },
-    { key: 'CapsLock', val: { ru: { down: 'Caps Lock', up: 'Caps Lock' }, en: { down: 'Caps Lock', up: 'Caps Lock' }, row: 2 } },
-    { key: 'KeyA', val: { ru: { down: 'ф', up: 'Ф' }, en: { down: 'a', up: 'A' }, row: 2 } },
-    { key: 'KeyS', val: { ru: { down: 'ы', up: 'Ы' }, en: { down: 's', up: 'S' }, row: 2 } },
-    { key: 'KeyD', val: { ru: { down: 'в', up: 'В' }, en: { down: 'd', up: 'D' }, row: 2 } },
-    { key: 'KeyF', val: { ru: { down: 'а', up: 'А' }, en: { down: 'f', up: 'F' }, row: 2 } },
-    { key: 'KeyG', val: { ru: { down: 'п', up: 'П' }, en: { down: 'g', up: 'G' }, row: 2 } },
-    { key: 'KeyH', val: { ru: { down: 'р', up: 'Р' }, en: { down: 'h', up: 'H' }, row: 2 } },
-    { key: 'KeyJ', val: { ru: { down: 'о', up: 'О' }, en: { down: 'j', up: 'J' }, row: 2 } },
-    { key: 'KeyK', val: { ru: { down: 'л', up: 'Л' }, en: { down: 'k', up: 'K' }, row: 2 } },
-    { key: 'KeyL', val: { ru: { down: 'д', up: 'Д' }, en: { down: 'l', up: 'L' }, row: 2 } },
-    { key: 'Semicolon', val: { ru: { down: 'ж', up: 'Ж' }, en: { down: ';', up: ':' }, row: 2 } },
-    { key: 'Quote', val: { ru: { down: 'э', up: 'Э' }, en: { down: '\'', up: '"' }, row: 2 } },
-    { key: 'Backslash', val: { ru: { down: '\\', up: '\\' }, en: { down: '\\', up: '|' }, row: 2 } },
-    { key: 'Enter', val: { ru: { down: 'Enter', up: 'Enter' }, en: { down: 'Enter', up: 'Enter' }, row: 2 } },
+    { key: 'Tab', val: { ru: { down: 'Tab', up: 'Tab' }, en: { down: 'Tab', up: 'Tab' }, row: 1, kind: '' } },
+    { key: 'KeyQ', val: { ru: { down: 'й', up: 'Й' }, en: { down: 'q', up: 'Q' }, row: 1, kind: '' } },
+    { key: 'KeyW', val: { ru: { down: 'ц', up: 'Ц' }, en: { down: 'w', up: 'W' }, row: 1, kind: '' } },
+    { key: 'KeyE', val: { ru: { down: 'у', up: 'У' }, en: { down: 'e', up: 'E' }, row: 1, kind: '' } },
+    { key: 'KeyR', val: { ru: { down: 'к', up: 'К' }, en: { down: 'r', up: 'R' }, row: 1, kind: '' } },
+    { key: 'KeyT', val: { ru: { down: 'е', up: 'Е' }, en: { down: 't', up: 'T' }, row: 1, kind: '' } },
+    { key: 'KeyY', val: { ru: { down: 'н', up: 'Н' }, en: { down: 'y', up: 'Y' }, row: 1, kind: '' } },
+    { key: 'KeyU', val: { ru: { down: 'г', up: 'Г' }, en: { down: 'u', up: 'U' }, row: 1, kind: '' } },
+    { key: 'KeyI', val: { ru: { down: 'ш', up: 'Ш' }, en: { down: 'i', up: 'I' }, row: 1, kind: '' } },
+    { key: 'KeyO', val: { ru: { down: 'щ', up: 'Щ' }, en: { down: 'o', up: 'O' }, row: 1, kind: '' } },
+    { key: 'KeyP', val: { ru: { down: 'з', up: 'З' }, en: { down: 'p', up: 'P' }, row: 1, kind: '' } },
+    { key: 'KeyOpen', val: { ru: { down: 'х', up: 'Х' }, en: { down: '[', up: '[' }, row: 1, kind: '' } },
+    { key: 'KeyClose', val: { ru: { down: 'ъ', up: 'Ъ' }, en: { down: ']', up: ']' }, row: 1, kind: '' } },
+    { key: 'Del', val: { ru: { down: 'Del', up: 'Del' }, en: { down: 'Del', up: 'Del' }, row: 1, kind: '' } },
+    { key: 'CapsLock', val: { ru: { down: 'Caps Lock', up: 'Caps Lock' }, en: { down: 'Caps Lock', up: 'Caps Lock' }, row: 2, kind: '' } },
+    { key: 'KeyA', val: { ru: { down: 'ф', up: 'Ф' }, en: { down: 'a', up: 'A' }, row: 2, kind: '' } },
+    { key: 'KeyS', val: { ru: { down: 'ы', up: 'Ы' }, en: { down: 's', up: 'S' }, row: 2, kind: '' } },
+    { key: 'KeyD', val: { ru: { down: 'в', up: 'В' }, en: { down: 'd', up: 'D' }, row: 2, kind: '' } },
+    { key: 'KeyF', val: { ru: { down: 'а', up: 'А' }, en: { down: 'f', up: 'F' }, row: 2, kind: '' } },
+    { key: 'KeyG', val: { ru: { down: 'п', up: 'П' }, en: { down: 'g', up: 'G' }, row: 2, kind: '' } },
+    { key: 'KeyH', val: { ru: { down: 'р', up: 'Р' }, en: { down: 'h', up: 'H' }, row: 2, kind: '' } },
+    { key: 'KeyJ', val: { ru: { down: 'о', up: 'О' }, en: { down: 'j', up: 'J' }, row: 2, kind: '' } },
+    { key: 'KeyK', val: { ru: { down: 'л', up: 'Л' }, en: { down: 'k', up: 'K' }, row: 2, kind: '' } },
+    { key: 'KeyL', val: { ru: { down: 'д', up: 'Д' }, en: { down: 'l', up: 'L' }, row: 2, kind: '' } },
+    { key: 'Semicolon', val: { ru: { down: 'ж', up: 'Ж' }, en: { down: ';', up: ':' }, row: 2, kind: '' } },
+    { key: 'Quote', val: { ru: { down: 'э', up: 'Э' }, en: { down: '\'', up: '"' }, row: 2, kind: '' } },
+    { key: 'Backslash', val: { ru: { down: '\\', up: '\\' }, en: { down: '\\', up: '|' }, row: 2, kind: '' } },
+    { key: 'Enter', val: { ru: { down: 'Enter', up: 'Enter' }, en: { down: 'Enter', up: 'Enter' }, row: 2, kind: '' } },
 
-    { key: 'ShiftLeft', val: { ru: { down: 'Shift', up: 'Shift' }, en: { down: 'Shift', up: 'Shift' }, row: 3 } },
-    { key: 'Key<', val: { ru: { down: '/', up: '|' }, en: { down: '>', up: '<' }, row: 3 } },
-    { key: 'KeyZ', val: { ru: { down: 'я', up: 'Я' }, en: { down: 'z', up: 'Z' }, row: 3 } },
-    { key: 'KeyX', val: { ru: { down: 'ч', up: 'Ч' }, en: { down: 'x', up: 'X' }, row: 3 } },
-    { key: 'KeyC', val: { ru: { down: 'с', up: 'С' }, en: { down: 'c', up: 'C' }, row: 3 } },
-    { key: 'KeyV', val: { ru: { down: 'м', up: 'М' }, en: { down: 'v', up: 'V' }, row: 3 } },
-    { key: 'KeyB', val: { ru: { down: 'и', up: 'И' }, en: { down: 'b', up: 'B' }, row: 3 } },
-    { key: 'KeyN', val: { ru: { down: 'т', up: 'Т' }, en: { down: 'n', up: 'N' }, row: 3 } },
-    { key: 'KeyM', val: { ru: { down: 'ь', up: 'Ь' }, en: { down: 'm', up: 'M' }, row: 3 } },
-    { key: 'Key,', val: { ru: { down: 'б', up: 'Б' }, en: { down: ',', up: '<' }, row: 3 } },
-    { key: 'Key.', val: { ru: { down: 'ю', up: 'Ю' }, en: { down: '.', up: '>' }, row: 3 } },
-    { key: 'Key?', val: { ru: { down: '.', up: ',' }, en: { down: '/', up: '?' }, row: 3 } },
-    { key: 'ArrowUp', val: { ru: { down: 'Up', up: 'Up' }, en: { down: 'Up', up: 'Up' }, row: 3 } },
-    { key: 'ShiftRight', val: { ru: { down: 'Shift', up: 'Shift' }, en: { down: 'Shift', up: 'Shift' }, row: 3 } },
+    { key: 'ShiftLeft', val: { ru: { down: 'Shift', up: 'Shift' }, en: { down: 'Shift', up: 'Shift' }, row: 3, kind: '' } },
+    { key: 'Key<', val: { ru: { down: '/', up: '|' }, en: { down: '>', up: '<' }, row: 3, kind: '' } },
+    { key: 'KeyZ', val: { ru: { down: 'я', up: 'Я' }, en: { down: 'z', up: 'Z' }, row: 3, kind: '' } },
+    { key: 'KeyX', val: { ru: { down: 'ч', up: 'Ч' }, en: { down: 'x', up: 'X' }, row: 3, kind: '' } },
+    { key: 'KeyC', val: { ru: { down: 'с', up: 'С' }, en: { down: 'c', up: 'C' }, row: 3, kind: '' } },
+    { key: 'KeyV', val: { ru: { down: 'м', up: 'М' }, en: { down: 'v', up: 'V' }, row: 3, kind: '' } },
+    { key: 'KeyB', val: { ru: { down: 'и', up: 'И' }, en: { down: 'b', up: 'B' }, row: 3, kind: '' } },
+    { key: 'KeyN', val: { ru: { down: 'т', up: 'Т' }, en: { down: 'n', up: 'N' }, row: 3, kind: '' } },
+    { key: 'KeyM', val: { ru: { down: 'ь', up: 'Ь' }, en: { down: 'm', up: 'M' }, row: 3, kind: '' } },
+    { key: 'Key,', val: { ru: { down: 'б', up: 'Б' }, en: { down: ',', up: '<' }, row: 3, kind: '' } },
+    { key: 'Key.', val: { ru: { down: 'ю', up: 'Ю' }, en: { down: '.', up: '>' }, row: 3, kind: '' } },
+    { key: 'Key?', val: { ru: { down: '.', up: ',' }, en: { down: '/', up: '?' }, row: 3, kind: '' } },
+    { key: 'ArrowUp', val: { ru: { down: 'Up', up: 'Up' }, en: { down: 'Up', up: 'Up' }, row: 3, kind: '' } },
+    { key: 'ShiftRight', val: { ru: { down: 'Shift', up: 'Shift' }, en: { down: 'Shift', up: 'Shift' }, row: 3, kind: '' } },
 
-    { key: 'ControlLeft', val: { ru: { down: 'Ctrl', up: 'Ctrl' }, en: { down: 'Ctrl', up: 'Ctrl' }, row: 4 } },
-    { key: 'Win', val: { ru: { down: 'Win', up: 'Win' }, en: { down: 'Win', up: 'Win' }, row: 4 } },
-    { key: 'AltLeft', val: { ru: { down: 'Alt', up: 'Alt' }, en: { down: 'Alt', up: 'Alt' }, row: 4 } },
-    { key: 'Space', val: { ru: { down: ' ', up: ' ' }, en: { down: ' ', up: ' ' }, row: 4 } },
-    { key: 'AltRight', val: { ru: { down: 'Alt Gr', up: 'Alt Gr' }, en: { down: 'Alt Gr', up: 'Alt Gr' }, row: 4 } },
-    { key: 'ControlRight', val: { ru: { down: 'Ctrl', up: 'Ctrl' }, en: { down: 'Ctrl', up: 'Ctrl' }, row: 4 } },
-    { key: 'ArrowLeft', val: { ru: { down: 'Left', up: 'Left' }, en: { down: 'Left', up: 'Left' }, row: 4 } },
-    { key: 'ArrowDown', val: { ru: { down: 'Down', up: 'Down' }, en: { down: 'Down', up: 'Down' }, row: 4 } },
-    { key: 'ArrowRight', val: { ru: { down: 'Right', up: 'Right' }, en: { down: 'Right', up: 'Right' }, row: 4 } }
+    { key: 'ControlLeft', val: { ru: { down: 'Ctrl', up: 'Ctrl' }, en: { down: 'Ctrl', up: 'Ctrl' }, row: 4, kind: '' } },
+    { key: 'Win', val: { ru: { down: 'Win', up: 'Win' }, en: { down: 'Win', up: 'Win' }, row: 4, kind: '' } },
+    { key: 'AltLeft', val: { ru: { down: 'Alt', up: 'Alt' }, en: { down: 'Alt', up: 'Alt' }, row: 4, kind: '' } },
+    { key: 'Space', val: { ru: { down: ' ', up: ' ' }, en: { down: ' ', up: ' ' }, row: 4, kind: '' } },
+    { key: 'AltRight', val: { ru: { down: 'Alt Gr', up: 'Alt Gr' }, en: { down: 'Alt Gr', up: 'Alt Gr' }, row: 4, kind: '' } },
+    { key: 'ControlRight', val: { ru: { down: 'Ctrl', up: 'Ctrl' }, en: { down: 'Ctrl', up: 'Ctrl' }, row: 4, kind: '' } },
+    { key: 'ArrowLeft', val: { ru: { down: 'Left', up: 'Left' }, en: { down: 'Left', up: 'Left' }, row: 4, kind: '' } },
+    { key: 'ArrowDown', val: { ru: { down: 'Down', up: 'Down' }, en: { down: 'Down', up: 'Down' }, row: 4, kind: '' } },
+    { key: 'ArrowRight', val: { ru: { down: 'Right', up: 'Right' }, en: { down: 'Right', up: 'Right' }, row: 4, kind: '' } }
   ]
 
   for (let row_index = 0; row_index < 5; row_index++) {
@@ -103,13 +103,13 @@
         key.appendChild(key_ru);
 
         const key_ru_down = document.createElement('span');
-        if (row_index != 0) key_ru_down.className = `case down`;
+        if (element.val.kind != 'num') key_ru_down.className = `case down`;
         else key_ru_down.className = `case numDown`
         key_ru_down.textContent = element.val.ru.down;
         key_ru.appendChild(key_ru_down);
 
         const key_ru_up = document.createElement('span');
-        if (row_index != 0) key_ru_up.className = `case up`
+        if (element.val.kind != 'num') key_ru_up.className = `case up`
         else key_ru_up.className = `case numUp`
         key_ru_up.textContent = element.val.ru.up;
         key_ru.appendChild(key_ru_up);
@@ -119,14 +119,14 @@
         key.appendChild(key_en);
 
         const key_en_down = document.createElement('span');
-        if (row_index != 0) key_en_down.className = `case down`
+        if (element.val.kind != 'num') key_en_down.className = `case down`
         else key_en_down.className = `case numDown`
 
         key_en_down.textContent = element.val.en.down;
         key_en.appendChild(key_en_down);
 
         const key_en_up = document.createElement('span');
-        if (row_index != 0) key_en_up.className = `case up`
+        if (element.val.kind != 'num') key_en_up.className = `case up`
         else key_en_up.className = `case numUp`
         key_en_up.textContent = element.val.en.up;
         key_en.appendChild(key_en_up);
@@ -372,7 +372,8 @@
           break;
         }
         default: {
-          text.value += key.val[language][shiftUp]
+          if (key.val.kind === 'num') text.value += key.val[language].down
+          else text.value += key.val[language][shiftUp]
         }
       }
     }

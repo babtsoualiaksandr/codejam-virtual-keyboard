@@ -222,8 +222,8 @@
   document.querySelector('.keyboard').addEventListener('mouseout', clickMouseKey);
   document.querySelector('.keyboard').addEventListener('click', clickMouseKey);
 
-  document.addEventListener('keydown', pressKeyDown, false);
-  document.addEventListener('keyup', pressKeyUp, false);
+  document.addEventListener('keydown', pressKeyDown);
+  document.addEventListener('keyup', pressKeyUp);
 
 
 
@@ -370,8 +370,7 @@
     div.classList.remove("clicked");
   }
 
-  function pressKeyDown(event) {
-    event.preventDefault();
+  function pressKeyDown(event) {   
     const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.add("clicked");
     if (event.keyCode === 18) {
@@ -382,8 +381,7 @@
     }
   }
 
-  function pressKeyUp(event) {
-    event.preventDefault();
+  function pressKeyUp(event) {    
     const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.remove("clicked");
     if (event.keyCode === 0 && (altBtn)) {

@@ -376,7 +376,7 @@
     if (event.keyCode === 18) {
       altBtn = true;
     }
-    if (event.keyCode === 20) {
+    if (event.keyCode === 20) {      
       Change_Shift();
     }
   }
@@ -384,8 +384,23 @@
   function pressKeyUp(event) {    
     const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.remove("clicked");
-    if (event.keyCode === 0 && (altBtn)) {
-      Change_language();
-    }
   }
+
+  function runOnKeys(func, ...codes) {
+    let pressed = new Set();
+    document.addEventListener('keydown', function(event) {
+      pressed.add(event.code);
+      for (let code of codes) { 
+        if (!pressed.has(code)) {
+          return;
+        }
+      }
+      pressed.clear();
+      func();
+    });
+    document.addEventListener('keyup', function(event) {
+      pressed.delete(event.code);
+    });
+  }
+  runOnKeys(() => {Change_language();},"AltLeft","ShiftLeft");
 })()

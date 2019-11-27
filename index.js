@@ -88,7 +88,9 @@
   for (let row_index = 0; row_index < 5; row_index++) {
 
     const row = document.createElement('div');
-    row.className = "row";
+    row.className = 'row';
+    row.classList.add(`row${row_index}`);
+    console.log(row.classList);
     keyboard.appendChild(row);
 
     Keys.forEach((element, index) => {
@@ -101,12 +103,14 @@
         key.appendChild(key_ru);
 
         const key_ru_down = document.createElement('span');
-        key_ru_down.className = `case down`;
+        if (row_index != 0) key_ru_down.className = `case down`;
+        else key_ru_down.className = `case numDown`
         key_ru_down.textContent = element.val.ru.down;
         key_ru.appendChild(key_ru_down);
 
         const key_ru_up = document.createElement('span');
-        key_ru_up.className = `case up`;
+        if (row_index != 0) key_ru_up.className = `case up`
+        else key_ru_up.className = `case numUp`
         key_ru_up.textContent = element.val.ru.up;
         key_ru.appendChild(key_ru_up);
 
@@ -115,12 +119,15 @@
         key.appendChild(key_en);
 
         const key_en_down = document.createElement('span');
-        key_en_down.className = `case down`;
+        if (row_index != 0) key_en_down.className = `case down`
+        else key_en_down.className = `case numDown`
+
         key_en_down.textContent = element.val.en.down;
         key_en.appendChild(key_en_down);
 
         const key_en_up = document.createElement('span');
-        key_en_up.className = `case up`;
+        if (row_index != 0) key_en_up.className = `case up`
+        else key_en_up.className = `case numUp`
         key_en_up.textContent = element.val.en.up;
         key_en.appendChild(key_en_up);
 
@@ -135,7 +142,6 @@
 
   let language;
   let shiftUp;
-  let altBtn = false;
 
   document.addEventListener("DOMContentLoaded", () => {
     language = localStorage.getItem('language_KeyBoard');
@@ -192,6 +198,14 @@
     localStorage.setItem('shiftUp_KeyBoard', shiftUp);
     const keysUp = document.querySelectorAll('.up');
     const keysDown = document.querySelectorAll('.down');
+    const keysNumDown = document.querySelectorAll('.numDown');
+    const keysNumUp = document.querySelectorAll('.numUp');
+    keysNumDown.forEach(key => {
+      key.style.display = 'block';
+    });
+    keysNumUp.forEach(key => {
+      key.style.display = 'block';
+    });
     switch (shiftUp) {
       case 'up': {
         keysDown.forEach(key => {
@@ -370,27 +384,21 @@
     div.classList.remove("clicked");
   }
 
-  function pressKeyDown(event) {   
+  function pressKeyDown(event) {
     const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.add("clicked");
-    if (event.keyCode === 18) {
-      altBtn = true;
-    }
-    if (event.keyCode === 20) {      
-      Change_Shift();
-    }
   }
 
-  function pressKeyUp(event) {    
+  function pressKeyUp(event) {
     const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.remove("clicked");
   }
 
   function runOnKeys(func, ...codes) {
     let pressed = new Set();
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
       pressed.add(event.code);
-      for (let code of codes) { 
+      for (let code of codes) {
         if (!pressed.has(code)) {
           return;
         }
@@ -398,9 +406,9 @@
       pressed.clear();
       func();
     });
-    document.addEventListener('keyup', function(event) {
+    document.addEventListener('keyup', function (event) {
       pressed.delete(event.code);
     });
   }
-  runOnKeys(() => {Change_language();},"AltLeft","ShiftLeft");
+  runOnKeys(() => { Change_language(); }, "AltLeft", "ShiftLeft");
 })()

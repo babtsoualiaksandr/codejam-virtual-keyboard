@@ -90,7 +90,6 @@
     const row = document.createElement('div');
     row.className = 'row';
     row.classList.add(`row${row_index}`);
-    console.log(row.classList);
     keyboard.appendChild(row);
 
     Keys.forEach((element, index) => {
@@ -142,6 +141,7 @@
 
   let language;
   let shiftUp;
+  let altLeftPush = false;
 
   document.addEventListener("DOMContentLoaded", () => {
     language = localStorage.getItem('language_KeyBoard');
@@ -162,6 +162,7 @@
   });
 
   function Change_language() {
+    console.log('change Language')
     if (language === 'en') {
       language = 'ru'
     } else language = 'en';
@@ -228,19 +229,10 @@
     }
   }
 
-  document.querySelector('.shiftleft').addEventListener('click', Change_language);
-  document.querySelector('.capslock').addEventListener('click', Change_Shift);
-
   document.querySelector('.keyboard').addEventListener('mousedown', clickMouseDownOnKey);
-  document.querySelector('.keyboard').addEventListener('mouseup', clickMouseKey);
-  document.querySelector('.keyboard').addEventListener('mouseout', clickMouseKey);
-  document.querySelector('.keyboard').addEventListener('click', clickMouseKey);
-
+  document.querySelector('.keyboard').addEventListener('mouseup', clickMouseUp);
   document.addEventListener('keydown', pressKeyDown);
   document.addEventListener('keyup', pressKeyUp);
-
-
-
 
   function Change_Shift() {
     if (shiftUp === 'up') {
@@ -248,7 +240,6 @@
     } else shiftUp = 'up';
     ShiftSetStyle(shiftUp);
   }
-
 
   function getCaret(el) {
     if (el.selectionStart) {
@@ -316,10 +307,21 @@
   }
 
   function clickMouseDownOnKey(event) {
-    const text = document.querySelector('#result');
-    text.focus();
     const div = event.target.closest('div');
     const key = Keys.find((val) => (div.className.toLowerCase() === 'key ' + val.key.toLowerCase()))
+    if (key) clickDownKey(key.key);
+  }
+
+
+  function pressKeyDown(event) {
+    clickDownKey(event.code);
+  }
+
+  function clickDownKey(keyCode) {
+    const text = document.querySelector('#result');
+    const div = document.querySelector(`.key.${keyCode.toLowerCase()}`)
+    if (div !== null) div.classList.add("clicked");
+    const key = Keys.find((val) => (keyCode === val.key));
     if (key != undefined) {
       switch (key.key) {
         case 'Backspace': {
@@ -335,6 +337,7 @@
           break;
         }
         case 'Tab': {
+          event.preventDefault();
           Tab();
           break;
         }
@@ -362,13 +365,36 @@
           resetCursor(text, currentPos + 1);
           break;
         }
-        case 'CapsLock':
-        case 'ShiftLeft':
-        case 'ShiftRight':
+        case 'ShiftLeft': {
+          if (altLeftPush) {
+            console.log('altLeftPush = *', altLeftPush)
+            Change_language();
+
+          }
+          else {
+            console.log('altLeftPush= +++', altLeftPush);
+            Change_Shift();
+          }
+
+          break;
+        }
+        case 'ShiftRight': {
+          Change_Shift();
+          break;
+        }
+        case 'AltLeft': {
+          altLeftPush = true;
+          console.log('altLeftPush=', altLeftPush)
+          break;
+        }
+
+        case 'CapsLock': {
+          Change_Shift();
+          break;
+        }
         case 'ControlLeft':
         case 'ControlRight':
-        case 'AltRight':
-        case 'AltLeft': {
+        case 'AltRight': {
           break;
         }
         default: {
@@ -377,39 +403,38 @@
         }
       }
     }
-    div.classList.add("clicked");
+
   }
 
-  function clickMouseKey(event) {
+
+  function clickMouseUp(event) {
     const div = event.target.closest('div');
-    div.classList.remove("clicked");
-  }
-
-  function pressKeyDown(event) {
-    const key = document.querySelector('.key.' + event.code.toLowerCase());
-    if (key !== null) key.classList.add("clicked");
+    console.log(div.classList);
+    if (div.classList[1] === 'shiftleft') {
+      Change_Shift();
+    }
+    if (div.classList[1] === 'shiftright') {
+      Change_Shift();
+    }
+    const clicked = document.querySelectorAll('.clicked');
+    clicked.forEach(element => {
+      element.classList.remove('clicked');
+    });
   }
 
   function pressKeyUp(event) {
     const key = document.querySelector('.key.' + event.code.toLowerCase());
     if (key !== null) key.classList.remove("clicked");
+    if (key.classList[1] === 'shiftleft' & !altLeftPush) {
+      Change_Shift();
+    }
+    if (key.classList[1] === 'shiftright') {
+      Change_Shift();
+    }
+    if (key.classList[1] === 'altleft') {
+      altLeftPush = false
+    }
   }
 
-  function runOnKeys(func, ...codes) {
-    let pressed = new Set();
-    document.addEventListener('keydown', function (event) {
-      pressed.add(event.code);
-      for (let code of codes) {
-        if (!pressed.has(code)) {
-          return;
-        }
-      }
-      pressed.clear();
-      func();
-    });
-    document.addEventListener('keyup', function (event) {
-      pressed.delete(event.code);
-    });
-  }
-  runOnKeys(() => { Change_language(); }, "AltLeft", "ShiftLeft");
+
 })()
